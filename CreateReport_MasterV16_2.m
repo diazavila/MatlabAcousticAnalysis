@@ -47,8 +47,9 @@ Inv_Gain_Correction = [1 1 1 1];
 % ________________________________________
 % PROCESSING - global values - must be edited
 %
-% Mission_DIR = 'C:\Users\jose.diaz\OneDrive - Plataforma Oceánica de Canarias\Documentos\Matlab\PureWind\RTSys\Data\2024-12-13_12h';
-Mission_DIR = 'C:\Users\jose.diaz\OneDrive - Plataforma Oceánica de Canarias\Documentos\Matlab\PureWind\RTSys\Data\Test';
+% Mission_DIR = 'C:\Users\jose.diaz\Documents\MATLAB\Data\Test';
+% Mission_DIR = 'C:\Users\jose.diaz\OneDrive - Plataforma Oceánica de Canarias\Documentos\Matlab\PureWind\RTSys\Data\Test';
+Mission_DIR = 'D:\PLOCAN_Bde_20240508-20240605_100ELISA_PUREWIND\Mod';
 % Mission_DIR = 'D:\Data';
 Channel = 1; % To select configuration gain correction (Channel 1 is input A)
 WavChannel = 1; % to select the data in wav file (in RTSYS File ChannelCD__.wav D is WavChannel 2)
@@ -103,7 +104,7 @@ for k =3:size(Directories,1)
              
             % 20Hz-20kHz filter
             % The filter is based on a bandpass Chebyshev type I IIR filter.
-            Hd = ChebyFilter1;
+            Hd = ChebyFilter2(Fs);
             gain = prod(Hd.ScaleValues);
             % disp ('Band-pass filter visualisation 20 Hz - 20 KHz (hit key to continue)...')
             % fvtool(Hd.sosMatrix);
